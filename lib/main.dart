@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_project/ButtonCounter.dart';
 import 'package:getx_project/CounterUsingController.dart';
 import 'package:getx_project/Messages.dart';
 import 'package:getx_project/translator.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/CounterController",
             page: () => const CounterUsingController()),
-        GetPage(name: "/translator", page: () => translator())
+        GetPage(name: "/translator", page: () => translator()),
+        GetPage(name: "/pressedcounter", page: () => ButtonCounter())
       ],
       unknownRoute:
           GetPage(name: '/notfound', page: () => const unknownRoute()),
@@ -89,6 +91,15 @@ class MyApp extends StatelessWidget {
                   Get.toNamed("/translator");
                 },
                 child: const Text("Translator"),
+              ),
+              const SizedBox(
+                height: 4,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Get.toNamed("/pressedcounter");
+                },
+                child: const Text("Pressed Counter"),
               ),
             ],
           ),
